@@ -1,0 +1,20 @@
+{
+  "name": "neurostack",
+  "version": "1.0.0",
+  "description": "Biohacker's Supplement & Research Engine",
+  "type": "module",
+  "scripts": {
+    "dev": "python3 -m http.server 8080",
+    "test": "echo \"No tests configured\""
+  },
+  "keywords": [
+    "supplements",
+    "biohacking",
+    "health"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  }
+}
