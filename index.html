@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEURO-STACK // Biohacker's Supplement & Research Engine</title>
+    <meta name="description" content="Search scientific supplements by goals or ingredients, analyze clinical research, build custom stacks, and optimize cognitive and physical performance.">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Icons (FontAwesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header>
+        <div class="nav-container">
+            <div class="logo">
+                <i class="fa-solid fa-atom"></i> NEURO-STACK <span>ENGINE</span>
+            </div>
+            <div class="nav-actions">
+                <div id="btn-open-drawer" class="stack-indicator" title="View Current Stack">
+                    <i class="fa-solid fa-layer-group text-green"></i>
+                    <span>My Stack</span>
+                    <span id="stack-count" class="stack-count">0</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main App Container -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>Optimize Your Biology with <span>Science</span></h1>
+            <p>Search premium adaptogens, longevity compounds, and focus enhancers backed by real-time clinical studies from PubMed and PubChem. Design your perfect stack.</p>
+            
+            <!-- Search Interface -->
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" id="search-input" class="search-bar" placeholder="Search by ingredient (e.g. NMN) or goal (e.g. sleep, focus)..." autocomplete="off">
+                <div id="search-suggestions" class="search-suggestions">
+                    <!-- Suggestions rendered dynamically by app.js -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Category Filters -->
+        <section class="filters-section" id="category-filters">
+            <button class="filter-pill active" data-category="all">All Compounds</button>
+            <button class="filter-pill" data-category="Focus & Calm">Focus & Calm</button>
+            <button class="filter-pill" data-category="Stress & Sleep">Stress & Sleep</button>
+            <button class="filter-pill" data-category="Longevity">Longevity</button>
+            <button class="filter-pill" data-category="Muscle & Brain">Muscle & Brain</button>
+        </section>
+
+        <!-- Dynamic Results Grid -->
+        <section class="results-grid" id="results-grid">
+            <!-- Cards rendered dynamically by app.js -->
+        </section>
+        
+    </main>
+
+    <!-- Slide-out Stack Drawer -->
+    <div id="stack-drawer" class="stack-drawer">
+        <div class="drawer-header">
+            <h2><i class="fa-solid fa-cubes-stacked"></i> Active Stack</h2>
+            <button id="btn-close-drawer" class="btn-icon"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="drawer-body" id="stack-items-container">
+            <!-- Stack items rendered dynamically by app.js -->
+            <div class="stack-empty">
+                <i class="fa-solid fa-box-open" style="font-size: 2rem; margin-bottom: 0.5rem; display: block;"></i>
+                Your stack is empty. Add compounds below to build your custom formula.
+            </div>
+        </div>
+        <!-- Dynamic Alerts Container -->
+        <div id="stack-alerts-container" style="padding: 1.2rem 1.5rem; border-top: 1px solid var(--border-color); display: none;">
+            <!-- Rendered by JS -->
+        </div>
+        <div class="drawer-footer">
+            <button id="btn-copy-stack" class="btn-stack-action btn-stack-copy">
+                <i class="fa-solid fa-copy"></i> Copy Stack Details
+            </button>
+            <button id="btn-share-stack" class="btn-stack-action btn-stack-clear" style="border-color: var(--accent-cyan); color: var(--accent-cyan);">
+                <i class="fa-solid fa-share-nodes"></i> Share Stack Link
+            </button>
+            <button id="btn-clear-stack" class="btn-stack-action btn-stack-clear">
+                <i class="fa-solid fa-trash-can"></i> Clear All
+            </button>
+        </div>
+    </div>
+
+    <!-- Details/Research Modal -->
+    <div id="details-modal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Compound Details</h2>
+                <button id="modal-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Research contents rendered dynamically by app.js -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Toast Notifications Container -->
+    <div id="toast-container" style="position: fixed; bottom: 20px; right: 20px; z-index: 9999; display: flex; flex-direction: column; gap: 10px;"></div>
+
+    <!-- App Scripts -->
+    <script type="module" src="app.js"></script>
+</body>
+</html>
