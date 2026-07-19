@@ -28,7 +28,7 @@ let searchQuery = '';
 // SECURITY EDIT: Hardcode your affiliate tags here.
 // Regular visitors cannot view or edit these tags since they are compiled inside app.js
 const affiliateConfig = {
-    amazonTag: 'neurostack-20',  // Put your Amazon Associate ID here
+    amazonTag: 'neurostack-21',  // Put your Amazon Associate ID here
     iherbTag: 'ABC1234'          // Put your iHerb Rewards Code here
 };
 
