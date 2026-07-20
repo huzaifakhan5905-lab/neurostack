@@ -1,4 +1,8 @@
 import supplementDatabase from './data.js';
+import { inject } from '@vercel/analytics';
+
+// Initialize Vercel Web Analytics
+inject();
 
 // DOM Elements
 const resultsGrid = document.getElementById('results-grid');

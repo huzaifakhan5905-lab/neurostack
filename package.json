@@ -1,0 +1,29 @@
+{
+  "name": "neurostack",
+  "version": "1.0.0",
+  "description": "Biohacker's Supplement & Research Engine - Search scientific supplements by goals or ingredients",
+  "main": "app.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huzaifakhan5905-lab/neurostack.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/huzaifakhan5905-lab/neurostack/issues"
+  },
+  "homepage": "https://github.com/huzaifakhan5905-lab/neurostack#readme",
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1"
+  },
+  "devDependencies": {
+    "vite": "^8.1.5"
+  }
+}
