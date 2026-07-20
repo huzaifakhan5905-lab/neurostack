@@ -70,11 +70,15 @@ function setupEventListeners() {
     btnClearStack.addEventListener('click', clearStack);
 
     // Close Details Modal
-    modalClose.addEventListener('click', () => detailsModal.style.display = 'none');
+    const resetSeoTitle = () => {
+        detailsModal.style.display = 'none';
+        document.title = "NEURO-STACK // Biohacker's Supplement & Research Engine";
+    };
+    modalClose.addEventListener('click', resetSeoTitle);
 
     // Click outside modal to close
     window.addEventListener('click', (e) => {
-        if (e.target === detailsModal) detailsModal.style.display = 'none';
+        if (e.target === detailsModal) resetSeoTitle();
     });
 }
 
@@ -438,6 +442,16 @@ function checkStackSynergies() {
 
 // Dynamic Research Fetching Modals
 async function openDetailedResearch(supp) {
+    // Dynamic Programmatic SEO Title & URL Deep Linking
+    const originalTitle = document.title;
+    document.title = `${supp.name} Dosage, Human Clinical Trials & Science Breakdown // Neuro-Stack`;
+    
+    // Update Meta Description dynamically for search engine bots
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+        metaDesc.setAttribute('content', `Explore ${supp.name} (${supp.chemicalName}) clinical evidence, dosage (${supp.recommendedDosage}), benefits, and live NCBI PubMed human trials.`);
+    }
+
     modalTitle.textContent = `Scientific Breakdown: ${supp.name}`;
     detailsModal.style.display = 'flex';
 
