@@ -439,6 +439,223 @@ const supplementDatabase = [
         ],
         amazonQuery: "Mucuna+Pruriens+Extract+L-DOPA",
         iherbQuery: "mucuna+pruriens"
+    },
+    {
+        id: "ginkgo-biloba",
+        name: "Ginkgo Biloba",
+        chemicalName: "Ginkgo biloba leaf extract",
+        category: "Focus & Brain",
+        shortDescription: "One of the oldest living tree species, clinically used to enhance cerebral blood flow, oxygenation, and microvascular circulation in the brain.",
+        goals: ["Cerebral Blood Flow", "Memory", "Focus", "Brain Health"],
+        evidenceScore: "A",
+        recommendedDosage: "120mg - 240mg daily (standardized extract EGb 761)",
+        benefits: [
+            "Increases microvascular cerebral blood circulation and glucose delivery to brain tissue",
+            "Improves cognitive processing speed, short-term memory, and mental sharpness",
+            "Acts as a potent neuroprotective antioxidant against free radical damage",
+            "Helps alleviate mild age-related cognitive decline and tinnitus"
+        ],
+        sideEffects: [
+            "Slight blood thinning action; avoid taking prior to surgeries or with warfarin",
+            "Mild headaches in rare instances"
+        ],
+        amazonQuery: "Ginkgo+Biloba+Extract+120mg",
+        iherbQuery: "ginkgo+biloba"
+    },
+    {
+        id: "gaba",
+        name: "GABA",
+        chemicalName: "Gamma-Aminobutyric Acid",
+        category: "Stress & Sleep",
+        shortDescription: "The human brain's primary inhibitory neurotransmitter that dampens overactive neural firing, promoting calm states and deep sleep.",
+        goals: ["Anxiety Reduction", "Calmness", "Deep Sleep", "Growth Hormone"],
+        evidenceScore: "B+",
+        recommendedDosage: "500mg - 1000mg taken before bed or during acute stress",
+        benefits: [
+            "Promotes alpha brain waves associated with relaxed alertness",
+            "Calms nervous system hyper-excitability and lowers physical tension",
+            "Shortens time required to fall asleep and enhances deep sleep duration",
+            "Stimulates natural human growth hormone (HGH) release post-exercise"
+        ],
+        sideEffects: [
+            "Mild tingling sensation or slight breath rate changes when taken in high doses (>2000mg)"
+        ],
+        amazonQuery: "PharmaGABA+500mg",
+        iherbQuery: "gaba+500mg"
+    },
+    {
+        id: "5-htp",
+        name: "5-HTP",
+        chemicalName: "5-Hydroxytryptophan",
+        category: "Stress & Sleep",
+        shortDescription: "The direct metabolic precursor to serotonin, synthesized from L-tryptophan to elevate mood, reduce appetite cravings, and facilitate sleep.",
+        goals: ["Mood Support", "Serotonin Boost", "Sleep Quality", "Appetite Control"],
+        evidenceScore: "A",
+        recommendedDosage: "50mg - 200mg taken in the evening with a light carb snack",
+        benefits: [
+            "Crosses the blood-brain barrier to rapidly synthesize serotonin",
+            "Enhances emotional well-being, mood stability, and optimism",
+            "Converts downstream into melatonin to promote sound sleep",
+            "Reduces carb cravings and aids in caloric restriction management"
+        ],
+        sideEffects: [
+            "Do NOT combine with prescription SSRIs or antidepressants (risk of Serotonin Syndrome)",
+            "Mild nausea if taken on an empty stomach"
+        ],
+        amazonQuery: "5-HTP+100mg",
+        iherbQuery: "5-htp+100mg"
+    },
+    {
+        id: "citicoline",
+        name: "Citicoline (CDP-Choline)",
+        chemicalName: "Cytidine 5'-diphocholine",
+        category: "Focus & Brain",
+        shortDescription: "A naturally occurring brain nucleotide that supplies both choline (for acetylcholine synthesis) and cytidine (for phosphatidylcholine brain membrane repair).",
+        goals: ["Brain Energy", "Focus", "Memory", "Neuroprotection"],
+        evidenceScore: "A+",
+        recommendedDosage: "250mg - 500mg daily (Cognizin brand recommended)",
+        benefits: [
+            "Increases brain ATP energy levels by over 13% in human clinical trials",
+            "Boosts brain phospholipid synthesis for neural membrane repair and plasticity",
+            "Improves sustained attention, mental stamina, and motor speed",
+            "Synergizes exceptionally well with racetams and caffeine stacks"
+        ],
+        sideEffects: [
+            "Very high tolerance profile; mild stomach discomfort or headaches if over-dosed"
+        ],
+        amazonQuery: "Cognizin+Citicoline+CDP+Choline",
+        iherbQuery: "cdp+choline+cognizin"
+    },
+    {
+        id: "noopept",
+        name: "Noopept",
+        chemicalName: "N-phenylacetyl-L-prolylglycine ethyl ester",
+        category: "Focus & Brain",
+        shortDescription: "A synthetic peptide nootropic up to 1000x more potent than piracetam, engineered to boost BDNF and NGF expression for high-level focus.",
+        goals: ["High Focus", "BDNF Boost", "Memory Recall", "Cognitive Agility"],
+        evidenceScore: "B+",
+        recommendedDosage: "10mg - 30mg daily (divided into sublingual doses)",
+        benefits: [
+            "Dramatically elevates Brain-Derived Neurotrophic Factor (BDNF) and NGF",
+            "Enhances sensory perception, clarity of thought, and logical reasoning",
+            "Exhibits potent neuroprotective properties against oxidative injury",
+            "Extremely low required dosage compared to traditional racetams"
+        ],
+        sideEffects: [
+            "Temporary brain fog or mild headaches if taken without a choline source (e.g., Alpha-GPC)",
+            "Irritability if dosage is too high"
+        ],
+        amazonQuery: "Noopept+Nootropic",
+        iherbQuery: "noopept+capsules"
+    },
+    {
+        id: "tongkat-ali",
+        name: "Tongkat Ali",
+        chemicalName: "Eurycoma longifolia extract",
+        category: "Stress & Energy",
+        shortDescription: "A Southeast Asian medicinal root clinically proven to unbind bioavailable free testosterone, lower stress hormones, and boost muscle stamina.",
+        goals: ["Testosterone Support", "Stamina", "Cortisol Lowering", "Vitality"],
+        evidenceScore: "A",
+        recommendedDosage: "200mg - 400mg daily (standardized 100:1 extract or LJ100)",
+        benefits: [
+            "Increases free bioavailable testosterone levels by unbinding Sex Hormone-Binding Globulin (SHBG)",
+            "Lowers cortisol stress hormone levels by up to 16% in clinical trials",
+            "Enhances lean muscle mass gains and physical fatigue resistance",
+            "Boosts physical libido, mood, and overall masculine energy"
+        ],
+        sideEffects: [
+            "Can cause mild insomnia or restlessness if taken late in the day",
+            "Best cycled (e.g., 5 days on, 2 days off) for optimal receptor sensitivity"
+        ],
+        amazonQuery: "Tongkat+Ali+LJ100+Extract",
+        iherbQuery: "tongkat+ali"
+    },
+    {
+        id: "fisetin",
+        name: "Fisetin",
+        chemicalName: "3,7,3',4'-Tetrahydroxyflavone",
+        category: "Longevity",
+        shortDescription: "A senolytic bioflavonoid polyphenol found in strawberries that selectively targets and clears senescent ('zombie') cells to extend cellular lifespan.",
+        goals: ["Senolytic", "Cellular Renewal", "Longevity", "Brain Health"],
+        evidenceScore: "A",
+        recommendedDosage: "100mg - 500mg daily (or high-dose pulsed protocol per Mayo Clinic trials)",
+        benefits: [
+            "Recognized as one of the most potent natural senolytics for clearing aged, damaged cells",
+            "Crosses the blood-brain barrier to maintain long-term memory synaptic function",
+            "Protects brain neurons against oxidative and ischemic stress",
+            "Supports healthy insulin signaling and cellular inflammation reduction"
+        ],
+        sideEffects: [
+            "Very high tolerance profile; mild stomach sensitivity in rare cases"
+        ],
+        amazonQuery: "Fisetin+500mg+Senolytic",
+        iherbQuery: "fisetin+extract"
+    },
+    {
+        id: "cordyceps",
+        name: "Cordyceps Mushroom",
+        chemicalName: "Cordyceps militaris / sinensis",
+        category: "Stress & Energy",
+        shortDescription: "A medicinal fungus revered by endurance athletes for its ability to increase cellular ATP generation and improve oxygen consumption (VO2 max).",
+        goals: ["VO2 Max", "Cellular ATP", "Endurance", "Respiratory Health"],
+        evidenceScore: "A",
+        recommendedDosage: "1000mg - 3000mg daily (standardized extract)",
+        benefits: [
+            "Increases cellular ATP production by optimizing mitochondrial energy output",
+            "Improves oxygen utilization capacity (VO2 max) during cardiovascular exertion",
+            "Supports bronchial dilation and lung airflow efficiency",
+            "Combats physical exhaustion and enhances exercise recovery speed"
+        ],
+        sideEffects: [
+            "Mild dry mouth or upset stomach",
+            "Avoid if taking blood thinners or immunosuppressants"
+        ],
+        amazonQuery: "Organic+Cordyceps+Mushroom+Extract",
+        iherbQuery: "cordyceps+mushroom"
+    },
+    {
+        id: "curcumin",
+        name: "Curcumin (Turmeric Extract)",
+        chemicalName: "Diferuloylmethane",
+        category: "Longevity",
+        shortDescription: "The active yellow polyphenol in turmeric root, world-famous for suppressing NF-kB inflammatory cascades and protecting joints and brain tissue.",
+        goals: ["Anti-Inflammation", "Joint Health", "Brain Health", "Antioxidant"],
+        evidenceScore: "A+",
+        recommendedDosage: "500mg - 1000mg daily (formulated with Piperine/Bioperine for 2000% increased absorption)",
+        benefits: [
+            "Inhibits NF-kB, the primary master transcription factor behind chronic inflammation",
+            "Reduces joint stiffness, soreness, and post-workout inflammation",
+            "Supports neuro-inflammation reduction and brain BDNF production",
+            "Protects liver tissue and supports digestive gut lining integrity"
+        ],
+        sideEffects: [
+            "Mild stomach upset if taken without food",
+            "Slight blood thinning action at high doses"
+        ],
+        amazonQuery: "Curcumin+Bioperine+95+Percent",
+        iherbQuery: "curcumin+bioperine"
+    },
+    {
+        id: "l-carnitine",
+        name: "L-Carnitine L-Tartrate",
+        chemicalName: "L-carnitine L-tartrate (LCLT)",
+        category: "Muscle & Brain",
+        shortDescription: "An amino acid derivative that shuttles long-chain fatty acids into mitochondria to be burned for fuel, accelerating recovery and muscle androgen receptor density.",
+        goals: ["Fat Oxidation", "Muscle Recovery", "Cellular Energy", "Androgen Density"],
+        evidenceScore: "A",
+        recommendedDosage: "1000mg - 2000mg daily with a carb meal or post-workout",
+        benefits: [
+            "Shuttles fatty acids into the mitochondrial matrix for ATP conversion",
+            "Up-regulates muscle androgen receptor density post-exercise",
+            "Dramatically reduces post-workout muscle soreness and tissue breakdown",
+            "Improves vascular blood flow via increased nitric oxide synthesis"
+        ],
+        sideEffects: [
+            "Mild fishy body odor in very high doses (>4g per day)",
+            "Stomach upset if taken on an empty stomach"
+        ],
+        amazonQuery: "L-Carnitine+L-Tartrate+Capsules",
+        iherbQuery: "l-carnitine+l-tartrate"
     }
 ];
 export default supplementDatabase;
