@@ -308,6 +308,137 @@ const supplementDatabase = [
         ],
         amazonQuery: "Ubiquinol+CoQ10+100mg",
         iherbQuery: "ubiquinol+coq10"
+    },
+    {
+        id: "apigenin",
+        name: "Apigenin",
+        chemicalName: "4',5,7-Trihydroxyflavone",
+        category: "Stress & Sleep",
+        shortDescription: "A bioflavonoid extracted from chamomile that acts as a gentle GABA receptor agonist, soothing the central nervous system for deep, uninterrupted sleep.",
+        goals: ["Deep Sleep", "Anxiety Reduction", "Muscle Relaxation"],
+        evidenceScore: "A",
+        recommendedDosage: "50mg - 100mg taken 30-60 minutes before bed",
+        benefits: [
+            "Binds to chloride channel GABA-A receptors to quiet racing thoughts before sleep",
+            "Relaxes smooth muscle tissue without morning hangover or grogginess",
+            "Exhibits strong anti-inflammatory and cellular antioxidant properties",
+            "Core component of the popular Huberman sleep stack protocol"
+        ],
+        sideEffects: [
+            "Very high safety profile; mild sedation if taken during daytime hours",
+            "Avoid combining with high dose prescription sedatives without doctor consultation"
+        ],
+        amazonQuery: "Apigenin+50mg+Chamomile",
+        iherbQuery: "apigenin+extract"
+    },
+    {
+        id: "l-tyrosine",
+        name: "L-Tyrosine",
+        chemicalName: "L-2-amino-3-(4-hydroxyphenyl)propanoic acid",
+        category: "Focus & Calm",
+        shortDescription: "A non-essential amino acid required for synthesizing dopamine, epinephrine, and norepinephrine under acute stress or heavy cognitive workload.",
+        goals: ["Focus", "Stress Resilience", "Working Memory", "Motivation"],
+        evidenceScore: "A+",
+        recommendedDosage: "500mg - 1500mg taken on an empty stomach",
+        benefits: [
+            "Prevents cognitive depletion during high-stress situations (cold exposure, exams, multi-tasking)",
+            "Promotes motivation and mental drive by boosting central dopamine levels",
+            "Enhances working memory speed and accuracy during extended focus sessions",
+            "Ideal non-jittery stack partner with caffeine for intense work blocks"
+        ],
+        sideEffects: [
+            "Mild restlessness if taken late in the day",
+            "Not recommended for individuals with hyperthyroidism or taking MAO inhibitors"
+        ],
+        amazonQuery: "L-Tyrosine+500mg",
+        iherbQuery: "l-tyrosine"
+    },
+    {
+        id: "berberine",
+        name: "Berberine HCL",
+        chemicalName: "Berberine Hydrochloride",
+        category: "Longevity",
+        shortDescription: "A potent plant alkaloid that activates AMPK (the metabolic master switch), supporting healthy blood glucose levels, metabolic rate, and longevity pathways.",
+        goals: ["Longevity", "Blood Sugar Control", "Metabolic Health", "Weight Management"],
+        evidenceScore: "A+",
+        recommendedDosage: "500mg taken 2 to 3 times daily with meals",
+        benefits: [
+            "Activates AMPK to mimic fasting and caloric restriction longevity pathways",
+            "Supports healthy post-meal blood glucose and insulin sensitivity",
+            "Promotes healthy blood lipid profiles and arterial vessel health",
+            "Supports gut microbiome diversity and digestive wellness"
+        ],
+        sideEffects: [
+            "Gastrointestinal cramps or mild diarrhea if taken on an empty stomach",
+            "Should not be taken concurrently with insulin medications without medical supervision"
+        ],
+        amazonQuery: "Berberine+HCL+500mg",
+        iherbQuery: "berberine"
+    },
+    {
+        id: "sulforaphane",
+        name: "Sulforaphane",
+        chemicalName: "1-isothiocyanato-4-(methylsulfinyl)butane",
+        category: "Longevity",
+        shortDescription: "A sulfur-rich compound found in broccoli sprouts that potentates Nrf2 activation, unleashing the body's master antioxidant and cellular detoxification enzymes.",
+        goals: ["Cellular Detox", "Longevity", "Brain Protection", "Anti-Inflammation"],
+        evidenceScore: "A",
+        recommendedDosage: "10mg - 30mg active Sulforaphane (via Prostaphane or stabilized Glucoraphanin + Myrosinase)",
+        benefits: [
+            "Master activator of Nrf2, inducing over 200 protective cellular antioxidant genes",
+            "Crosses the blood-brain barrier to protect neural cells from oxidative damage",
+            "Accelerates phase-II liver detoxification processes",
+            "Supports long-term cardiovascular and DNA integrity"
+        ],
+        sideEffects: [
+            "Mild sulfur odor in urine",
+            "Temporary gas or bloating in digestive-sensitive individuals"
+        ],
+        amazonQuery: "Sulforaphane+Broccoli+Sprout+Extract",
+        iherbQuery: "sulforaphane"
+    },
+    {
+        id: "phosphatidylserine",
+        name: "Phosphatidylserine (PS)",
+        chemicalName: "1,2-diacyl-sn-glycero-3-phospho-L-serine",
+        category: "Focus & Brain",
+        shortDescription: "An essential phospholipid component of cell membranes that lowers exercise-induced cortisol and supports long-term memory formation.",
+        goals: ["Memory", "Cortisol Lowering", "Focus", "Brain Health"],
+        evidenceScore: "A",
+        recommendedDosage: "100mg 3 times daily (or 300mg once daily)",
+        benefits: [
+            "Lowers elevated cortisol levels triggered by physical or emotional stress",
+            "Improves short-term memory recall and cognitive processing speed",
+            "Supports nerve cell membrane fluidity and neurotransmitter release",
+            "Approved by FDA for qualified health claims regarding cognitive decline"
+        ],
+        sideEffects: [
+            "Extremely safe; minor stomach upset or insomnia if taken in excess (>600mg)"
+        ],
+        amazonQuery: "Phosphatidylserine+300mg",
+        iherbQuery: "phosphatidylserine"
+    },
+    {
+        id: "mucuna-pruriens",
+        name: "Mucuna Pruriens (L-DOPA)",
+        chemicalName: "Levodopa / Mucuna pruriens extract",
+        category: "Focus & Calm",
+        shortDescription: "A tropical legume containing high concentrations of natural L-DOPA, the direct precursor to dopamine, driving motivation and mood elevation.",
+        goals: ["Dopamine Boost", "Motivation", "Mood Support", "Drive"],
+        evidenceScore: "B+",
+        recommendedDosage: "250mg - 500mg daily (standardized to 15% L-DOPA)",
+        benefits: [
+            "Directly increases dopamine levels in the brain to boost motivation and reward drive",
+            "Enhances sense of well-being, mood stability, and libido",
+            "Supports healthy growth hormone secretion and motor control",
+            "Complements intense work sprints or creative brain sessions"
+        ],
+        sideEffects: [
+            "Best cycled (e.g., 3 days on, 2 days off) to prevent dopamine receptor downregulation",
+            "Mild nausea if taken on an empty stomach"
+        ],
+        amazonQuery: "Mucuna+Pruriens+Extract+L-DOPA",
+        iherbQuery: "mucuna+pruriens"
     }
 ];
 export default supplementDatabase;
