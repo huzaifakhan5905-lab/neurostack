@@ -113,7 +113,11 @@ function renderSupplements() {
         
         const card = document.createElement('div');
         card.className = 'supp-card';
+        const suppImage = supp.image || 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80';
         card.innerHTML = `
+            <div class="card-banner">
+                <img src="${suppImage}" alt="${supp.name}" class="card-banner-img" loading="lazy" />
+            </div>
             <div class="card-header">
                 <div class="card-title-group">
                     <h3>${supp.name}</h3>

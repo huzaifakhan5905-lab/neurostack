@@ -20,7 +20,8 @@ const supplementDatabase = [
             "Should be avoided by pregnant or breastfeeding individuals"
         ],
         amazonQuery: "KSM-66+Ashwagandha+Extract",
-        iherbQuery: "ashwagandha+ksm-66"
+        iherbQuery: "ashwagandha+ksm-66",
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "l-theanine",
@@ -42,7 +43,8 @@ const supplementDatabase = [
             "May cause mild headaches if combined with high caffeine dosages"
         ],
         amazonQuery: "L-Theanine+200mg",
-        iherbQuery: "l-theanine"
+        iherbQuery: "l-theanine",
+        image: "https://images.unsplash.com/photo-1576092768241-dec231879fc3?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "nmn",
@@ -64,7 +66,8 @@ const supplementDatabase = [
             "Slight stomach discomfort when taken on an empty stomach"
         ],
         amazonQuery: "NMN+Nicotinamide+Mononucleotide",
-        iherbQuery: "nmn+nicotinamide"
+        iherbQuery: "nmn+nicotinamide",
+        image: "https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "creatine",
@@ -86,7 +89,8 @@ const supplementDatabase = [
             "Digestive distress if consumed without enough water"
         ],
         amazonQuery: "Creatine+Monohydrate+Powder+Creapure",
-        iherbQuery: "creatine+monohydrate"
+        iherbQuery: "creatine+monohydrate",
+        image: "https://images.unsplash.com/photo-1517838277536-f5f99be501cd?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "lions-mane",
@@ -107,7 +111,8 @@ const supplementDatabase = [
             "Very well tolerated; minor skin itching in very rare cases due to increased NGF"
         ],
         amazonQuery: "Lions+Mane+Mushroom+Extract+Organic",
-        iherbQuery: "lions+mane+mushroom"
+        iherbQuery: "lions+mane+mushroom",
+        image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "melatonin",
@@ -130,7 +135,8 @@ const supplementDatabase = [
             "May suppress natural melatonin production if used in large doses long-term"
         ],
         amazonQuery: "Low+Dose+Melatonin+1mg",
-        iherbQuery: "melatonin+low+dose"
+        iherbQuery: "melatonin+low+dose",
+        image: "https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "rhodiola-rosea",
@@ -152,7 +158,8 @@ const supplementDatabase = [
             "Mild dry mouth or sleep disruption in sensitive users"
         ],
         amazonQuery: "Rhodiola+Rosea+Extract",
-        iherbQuery: "rhodiola+rosea"
+        iherbQuery: "rhodiola+rosea",
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "resveratrol",
@@ -174,7 +181,8 @@ const supplementDatabase = [
             "Can interact with blood thinners (consult a doctor)"
         ],
         amazonQuery: "Trans-Resveratrol+500mg",
-        iherbQuery: "trans-resveratrol"
+        iherbQuery: "trans-resveratrol",
+        image: "https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "caffeine",
@@ -197,7 +205,8 @@ const supplementDatabase = [
             "Mild dependency or tolerance buildup with chronic usage"
         ],
         amazonQuery: "Caffeine+Pills+100mg",
-        iherbQuery: "caffeine+capsules"
+        iherbQuery: "caffeine+capsules",
+        image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "magnesium-threonate",
@@ -219,7 +228,8 @@ const supplementDatabase = [
             "Drowsiness if taken in the morning (best taken before sleep)"
         ],
         amazonQuery: "Magtein+Magnesium+L-Threonate",
-        iherbQuery: "magnesium+l-threonate"
+        iherbQuery: "magnesium+l-threonate",
+        image: "https://images.unsplash.com/photo-1584017911766-d451b3d0e843?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "bacopa-monnieri",
@@ -241,7 +251,8 @@ const supplementDatabase = [
             "Can cause fatigue in some users (often cycled or stacked)"
         ],
         amazonQuery: "Bacopa+Monnieri+Extract+Synapsa",
-        iherbQuery: "bacopa+monnieri"
+        iherbQuery: "bacopa+monnieri",
+        image: "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "alpha-gpc",
@@ -263,7 +274,8 @@ const supplementDatabase = [
             "Dizziness or heartburn in sensitive users"
         ],
         amazonQuery: "Alpha+GPC+300mg",
-        iherbQuery: "alpha+gpc"
+        iherbQuery: "alpha+gpc",
+        image: "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "omega-3",
@@ -285,7 +297,8 @@ const supplementDatabase = [
             "Slight blood thinning properties in high doses"
         ],
         amazonQuery: "High+Potency+Omega+3+Fish+Oil",
-        iherbQuery: "omega-3+fish+oil"
+        iherbQuery: "omega-3+fish+oil",
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "coq10",
@@ -307,7 +320,8 @@ const supplementDatabase = [
             "Mild stomach upset in a small percentage of users"
         ],
         amazonQuery: "Ubiquinol+CoQ10+100mg",
-        iherbQuery: "ubiquinol+coq10"
+        iherbQuery: "ubiquinol+coq10",
+        image: "https://images.unsplash.com/photo-1559757175-5700dde675bc?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "apigenin",
@@ -329,7 +343,8 @@ const supplementDatabase = [
             "Avoid combining with high dose prescription sedatives without doctor consultation"
         ],
         amazonQuery: "Apigenin+50mg+Chamomile",
-        iherbQuery: "apigenin+extract"
+        iherbQuery: "apigenin+extract",
+        image: "https://images.unsplash.com/photo-1598283095039-b9d997d91e3e?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "l-tyrosine",
@@ -351,7 +366,8 @@ const supplementDatabase = [
             "Not recommended for individuals with hyperthyroidism or taking MAO inhibitors"
         ],
         amazonQuery: "L-Tyrosine+500mg",
-        iherbQuery: "l-tyrosine"
+        iherbQuery: "l-tyrosine",
+        image: "https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "berberine",
@@ -373,7 +389,8 @@ const supplementDatabase = [
             "Should not be taken concurrently with insulin medications without medical supervision"
         ],
         amazonQuery: "Berberine+HCL+500mg",
-        iherbQuery: "berberine"
+        iherbQuery: "berberine",
+        image: "https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "sulforaphane",
@@ -395,7 +412,8 @@ const supplementDatabase = [
             "Temporary gas or bloating in digestive-sensitive individuals"
         ],
         amazonQuery: "Sulforaphane+Broccoli+Sprout+Extract",
-        iherbQuery: "sulforaphane"
+        iherbQuery: "sulforaphane",
+        image: "https://images.unsplash.com/photo-1459411621453-7b03977f4bfc?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "phosphatidylserine",
@@ -416,7 +434,8 @@ const supplementDatabase = [
             "Extremely safe; minor stomach upset or insomnia if taken in excess (>600mg)"
         ],
         amazonQuery: "Phosphatidylserine+300mg",
-        iherbQuery: "phosphatidylserine"
+        iherbQuery: "phosphatidylserine",
+        image: "https://images.unsplash.com/photo-1559757148-5c350d0d3c56?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "mucuna-pruriens",
@@ -438,7 +457,8 @@ const supplementDatabase = [
             "Mild nausea if taken on an empty stomach"
         ],
         amazonQuery: "Mucuna+Pruriens+Extract+L-DOPA",
-        iherbQuery: "mucuna+pruriens"
+        iherbQuery: "mucuna+pruriens",
+        image: "https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "ginkgo-biloba",
@@ -460,7 +480,8 @@ const supplementDatabase = [
             "Mild headaches in rare instances"
         ],
         amazonQuery: "Ginkgo+Biloba+Extract+120mg",
-        iherbQuery: "ginkgo+biloba"
+        iherbQuery: "ginkgo+biloba",
+        image: "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "gaba",
@@ -481,7 +502,8 @@ const supplementDatabase = [
             "Mild tingling sensation or slight breath rate changes when taken in high doses (>2000mg)"
         ],
         amazonQuery: "PharmaGABA+500mg",
-        iherbQuery: "gaba+500mg"
+        iherbQuery: "gaba+500mg",
+        image: "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "5-htp",
@@ -503,7 +525,8 @@ const supplementDatabase = [
             "Mild nausea if taken on an empty stomach"
         ],
         amazonQuery: "5-HTP+100mg",
-        iherbQuery: "5-htp+100mg"
+        iherbQuery: "5-htp+100mg",
+        image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "citicoline",
@@ -524,7 +547,8 @@ const supplementDatabase = [
             "Very high tolerance profile; mild stomach discomfort or headaches if over-dosed"
         ],
         amazonQuery: "Cognizin+Citicoline+CDP+Choline",
-        iherbQuery: "cdp+choline+cognizin"
+        iherbQuery: "cdp+choline+cognizin",
+        image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "noopept",
@@ -546,7 +570,8 @@ const supplementDatabase = [
             "Irritability if dosage is too high"
         ],
         amazonQuery: "Noopept+Nootropic",
-        iherbQuery: "noopept+capsules"
+        iherbQuery: "noopept+capsules",
+        image: "https://images.unsplash.com/photo-1585435557343-3b092031a831?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "tongkat-ali",
@@ -568,7 +593,8 @@ const supplementDatabase = [
             "Best cycled (e.g., 5 days on, 2 days off) for optimal receptor sensitivity"
         ],
         amazonQuery: "Tongkat+Ali+LJ100+Extract",
-        iherbQuery: "tongkat+ali"
+        iherbQuery: "tongkat+ali",
+        image: "https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "fisetin",
@@ -589,7 +615,8 @@ const supplementDatabase = [
             "Very high tolerance profile; mild stomach sensitivity in rare cases"
         ],
         amazonQuery: "Fisetin+500mg+Senolytic",
-        iherbQuery: "fisetin+extract"
+        iherbQuery: "fisetin+extract",
+        image: "https://images.unsplash.com/photo-1464965911861-746a04b4bca6?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "cordyceps",
@@ -611,7 +638,8 @@ const supplementDatabase = [
             "Avoid if taking blood thinners or immunosuppressants"
         ],
         amazonQuery: "Organic+Cordyceps+Mushroom+Extract",
-        iherbQuery: "cordyceps+mushroom"
+        iherbQuery: "cordyceps+mushroom",
+        image: "https://images.unsplash.com/photo-1504672281656-e4981d70414b?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "curcumin",
@@ -633,7 +661,8 @@ const supplementDatabase = [
             "Slight blood thinning action at high doses"
         ],
         amazonQuery: "Curcumin+Bioperine+95+Percent",
-        iherbQuery: "curcumin+bioperine"
+        iherbQuery: "curcumin+bioperine",
+        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
     },
     {
         id: "l-carnitine",
@@ -655,7 +684,8 @@ const supplementDatabase = [
             "Stomach upset if taken on an empty stomach"
         ],
         amazonQuery: "L-Carnitine+L-Tartrate+Capsules",
-        iherbQuery: "l-carnitine+l-tartrate"
+        iherbQuery: "l-carnitine+l-tartrate",
+        image: "https://images.unsplash.com/photo-1483721063314-e9d69656e716?auto=format&fit=crop&w=600&q=80"
     }
 ];
 export default supplementDatabase;
