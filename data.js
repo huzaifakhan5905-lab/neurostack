@@ -21,7 +21,7 @@ const supplementDatabase = [
         ],
         amazonQuery: "KSM-66+Ashwagandha+Extract",
         iherbQuery: "ashwagandha+ksm-66",
-        image: "https://images.unsplash.com/photo-1615485290382-441e4d049cb5?auto=format&fit=crop&w=600&q=80"
+        image: "./images/ashwagandha.jpg"
     },
     {
         id: "l-theanine",
@@ -136,7 +136,7 @@ const supplementDatabase = [
         ],
         amazonQuery: "Low+Dose+Melatonin+1mg",
         iherbQuery: "melatonin+low+dose",
-        image: "https://images.unsplash.com/photo-1511295742362-92c96b124e52?auto=format&fit=crop&w=600&q=80"
+        image: "./images/melatonin.jpg"
     },
     {
         id: "rhodiola-rosea",
@@ -344,7 +344,7 @@ const supplementDatabase = [
         ],
         amazonQuery: "Apigenin+50mg+Chamomile",
         iherbQuery: "apigenin+extract",
-        image: "https://images.unsplash.com/photo-1598283095039-b9d997d91e3e?auto=format&fit=crop&w=600&q=80"
+        image: "./images/apigenin.jpg"
     },
     {
         id: "l-tyrosine",
@@ -639,7 +639,7 @@ const supplementDatabase = [
         ],
         amazonQuery: "Organic+Cordyceps+Mushroom+Extract",
         iherbQuery: "cordyceps+mushroom",
-        image: "https://images.unsplash.com/photo-1504672281656-e4981d70414b?auto=format&fit=crop&w=600&q=80"
+        image: "./images/cordyceps.jpg"
     },
     {
         id: "curcumin",
@@ -685,7 +685,7 @@ const supplementDatabase = [
         ],
         amazonQuery: "L-Carnitine+L-Tartrate+Capsules",
         iherbQuery: "l-carnitine+l-tartrate",
-        image: "https://images.unsplash.com/photo-1483721063314-e9d69656e716?auto=format&fit=crop&w=600&q=80"
+        image: "./images/l-carnitine.jpg"
     }
 ];
 export default supplementDatabase;
