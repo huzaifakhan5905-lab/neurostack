@@ -541,8 +541,18 @@ async function fetchPubChemData(name) {
     
     // PubChem likes clean names. We resolve some common shorthand.
     let searchQueryName = name.split(' ')[0]; // Take first word for simplicity (e.g. Ashwagandha)
+    
+    // Map specific compounds that fail to their primary active constituent in PubChem
     if (name === "Lion's Mane") searchQueryName = "Hericium";
-    if (name.includes("L-Theanine")) searchQueryName = "Theanine";
+    else if (name.includes("L-Theanine")) searchQueryName = "Theanine";
+    else if (name.includes("Ashwagandha")) searchQueryName = "Withaferin";
+    else if (name.includes("Omega-3")) searchQueryName = "Eicosapentaenoic acid";
+    else if (name.includes("Mucuna Pruriens")) searchQueryName = "Levodopa";
+    else if (name.includes("Tongkat Ali")) searchQueryName = "Eurycomanone";
+    else if (name.includes("Cordyceps Mushroom")) searchQueryName = "Cordycepin";
+    else if (name.includes("Magnesium L-Threonate")) searchQueryName = "Magnesium threonate";
+    else if (name.includes("Ginkgo Biloba")) searchQueryName = "Ginkgolide";
+    else if (name.includes("Bacopa Monnieri")) searchQueryName = "Bacoside";
 
     try {
         // Fetch properties (Molecular Formula & Weight)
@@ -570,12 +580,29 @@ async function fetchPubChemData(name) {
         `;
     } catch (error) {
         console.warn('PubChem Fetch Error: ', error);
-        container.innerHTML = `
-            <div style="font-size: 0.9rem; color: var(--text-secondary);">
-                <i class="fa-solid fa-circle-exclamation text-purple" style="margin-right: 0.5rem;"></i>
-                Alternative molecular properties offline. Real-time PubChem mapping unavailable.
-            </div>
-        `;
+        
+        // Show botanical mixture info for plant/herb extracts instead of a scary offline error
+        const botanicalList = ["Ashwagandha", "Lion's Mane", "Omega-3 Fish Oil", "Mucuna Pruriens", "Tongkat Ali", "Cordyceps Mushroom", "Ginkgo Biloba", "Bacopa Monnieri"];
+        const isBotanical = botanicalList.some(bot => name.includes(bot));
+        
+        if (isBotanical) {
+            container.innerHTML = `
+                <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.5; margin-top: 0.3rem;">
+                    <div style="display: flex; align-items: center; gap: 0.5rem; color: var(--accent-cyan); font-weight: 600; margin-bottom: 0.5rem;">
+                        <i class="fa-solid fa-leaf"></i> Botanical Extract
+                    </div>
+                    This is a natural organic extract containing a complex synergy of multiple bioactive compounds rather than a single synthetic molecule.
+                </div>
+            `;
+        } else {
+            // Keep the exact original error message untouched for synthetic/other compounds
+            container.innerHTML = `
+                <div style="font-size: 0.9rem; color: var(--text-secondary);">
+                    <i class="fa-solid fa-circle-exclamation text-purple" style="margin-right: 0.5rem;"></i>
+                    Alternative molecular properties offline. Real-time PubChem mapping unavailable.
+                </div>
+            `;
+        }
     }
 }
 
