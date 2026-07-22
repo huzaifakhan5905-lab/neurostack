@@ -80,7 +80,6 @@
         <section class="hero">
             <h1>Optimize Your Biology with <span>Science</span></h1>
             <p>Search premium adaptogens, longevity compounds, and focus enhancers backed by real-time clinical studies from PubMed and PubChem. Design your perfect stack.</p>
-            
             <!-- Search Interface -->
             <div class="search-container">
                 <i class="fa-solid fa-magnifying-glass search-icon"></i>
@@ -88,6 +87,16 @@
                 <div id="search-suggestions" class="search-suggestions">
                     <!-- Suggestions rendered dynamically by app.js -->
                 </div>
+            </div>
+
+            <!-- Action Buttons for Wizard & Compare -->
+            <div class="header-actions">
+                <button id="btn-open-wizard" class="action-btn-primary">
+                    <i class="fa-solid fa-wand-magic-sparkles"></i> Quick Stack Wizard
+                </button>
+                <button id="btn-open-compare" class="action-btn-secondary">
+                    <i class="fa-solid fa-right-left"></i> Compare Compounds
+                </button>
             </div>
         </section>
 
@@ -165,6 +174,130 @@
             </div>
             <div class="modal-body" id="modal-body">
                 <!-- Research contents rendered dynamically by app.js -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Stack Wizard Modal -->
+    <div id="wizard-modal" class="modal-overlay">
+        <div class="modal-content wizard-modal-content">
+            <div class="modal-header">
+                <h2>⚡ Quick Stack Wizard</h2>
+                <button id="wizard-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="wizard-progress-bar">
+                    <div id="wizard-progress" class="wizard-progress-fill" style="width: 33.33%;"></div>
+                </div>
+                
+                <!-- Step 1: Goal selection -->
+                <div class="wizard-step active" id="wizard-step-1">
+                    <h3>Step 1: Choose Your Primary Focus</h3>
+                    <p class="wizard-sub">What is the main biological upgrade you are targeting today?</p>
+                    <div class="wizard-options">
+                        <div class="wizard-option-card" data-val="Focus & Calm">
+                            <div class="icon">🧠</div>
+                            <h4>Focus & Cognitive Agility</h4>
+                            <p>For intense studying, working, memory recall, and daily mental stamina.</p>
+                        </div>
+                        <div class="wizard-option-card" data-val="Stress & Sleep">
+                            <div class="icon">💤</div>
+                            <h4>Anxiety Relief & Deep Sleep</h4>
+                            <p>For lowering cortisol, relaxing physical tension, and improving REM sleep cycles.</p>
+                        </div>
+                        <div class="wizard-option-card" data-val="Longevity">
+                            <div class="icon">⏳</div>
+                            <h4>Anti-Aging & Cellular Energy</h4>
+                            <p>For boosting NAD+, mitochondrial health, and long-term DNA repair.</p>
+                        </div>
+                        <div class="wizard-option-card" data-val="Muscle & Brain">
+                            <div class="icon">⚡</div>
+                            <h4>Athletic Power & Recovery</h4>
+                            <p>For ATP energy, muscular strength, recovery, and oxygen utilization.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2: Stimulant Preference -->
+                <div class="wizard-step" id="wizard-step-2">
+                    <h3>Step 2: Stimulant Tolerance</h3>
+                    <p class="wizard-sub">Do you consume caffeine, or do you prefer a stimulant-free stack?</p>
+                    <div class="wizard-options-split">
+                        <div class="wizard-option-card" data-val="stim">
+                            <div class="icon">☕</div>
+                            <h4>Include Stimulants</h4>
+                            <p>I enjoy Caffeine and want to optimize it with synergy stack partners (like L-Theanine).</p>
+                        </div>
+                        <div class="wizard-option-card" data-val="no-stim">
+                            <div class="icon">🌿</div>
+                            <h4>100% Stimulant-Free</h4>
+                            <p>I want natural clean energy, stress relief, or longevity focus without jitters.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3: Stack Complexity -->
+                <div class="wizard-step" id="wizard-step-3">
+                    <h3>Step 3: Stack Blueprint</h3>
+                    <p class="wizard-sub">Choose your desired level of supplement curation.</p>
+                    <div class="wizard-options-split">
+                        <div class="wizard-option-card" data-val="starter">
+                            <div class="icon">🔋</div>
+                            <h4>Starter Synergy Duo</h4>
+                            <p>A simple, highly verified 2-compound stack that is easy to manage.</p>
+                        </div>
+                        <div class="wizard-option-card" data-val="advanced">
+                            <div class="icon">🚀</div>
+                            <h4>Advanced Optimized Stack</h4>
+                            <p>A comprehensive 3-to-4 compound protocol for maximum biohacking results.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4: Results -->
+                <div class="wizard-step" id="wizard-step-results">
+                    <h3>🎯 Your Customized Biohacking Stack</h3>
+                    <div id="wizard-result-box" class="wizard-result-box">
+                        <!-- Rendered by JS -->
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer wizard-footer">
+                <button id="btn-wizard-back" class="btn-wizard-nav" style="display: none;">Back</button>
+                <button id="btn-wizard-next" class="btn-wizard-nav btn-wizard-primary">Next</button>
+                <button id="btn-wizard-apply" class="btn-wizard-nav btn-wizard-primary" style="display: none;">Apply to My Stack</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supplement Comparison Modal -->
+    <div id="compare-modal" class="modal-overlay">
+        <div class="modal-content compare-modal-content">
+            <div class="modal-header">
+                <h2>⚔️ Supplement Comparison Battle</h2>
+                <button id="compare-close" class="modal-close"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <p class="compare-sub">Select two supplements side-by-side to compare science scores, dosing, benefits, and check synergy compatibility.</p>
+                <div class="compare-selectors">
+                    <div class="selector-group">
+                        <label for="compare-select-a">Compound A</label>
+                        <select id="compare-select-a" class="compare-dropdown">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                    <div class="versus-divider">VS</div>
+                    <div class="selector-group">
+                        <label for="compare-select-b">Compound B</label>
+                        <select id="compare-select-b" class="compare-dropdown">
+                            <!-- Populated dynamically -->
+                        </select>
+                    </div>
+                </div>
+
+                <div id="compare-results-table" class="compare-results-table">
+                    <!-- Comparison table rendered by JS -->
+                </div>
             </div>
         </div>
     </div>

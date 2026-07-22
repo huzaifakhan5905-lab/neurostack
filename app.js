@@ -79,7 +79,43 @@ function setupEventListeners() {
     // Click outside modal to close
     window.addEventListener('click', (e) => {
         if (e.target === detailsModal) resetSeoTitle();
+        if (e.target === document.getElementById('wizard-modal')) closeWizard();
+        if (e.target === document.getElementById('compare-modal')) closeCompare();
     });
+
+    // Wizard Event Listeners
+    document.getElementById('btn-open-wizard').addEventListener('click', openWizard);
+    document.getElementById('wizard-close').addEventListener('click', closeWizard);
+    document.getElementById('btn-wizard-next').addEventListener('click', handleWizardNext);
+    document.getElementById('btn-wizard-back').addEventListener('click', handleWizardBack);
+    document.getElementById('btn-wizard-apply').addEventListener('click', applyWizardStack);
+
+    // Option selections in wizard cards
+    document.getElementById('wizard-modal').addEventListener('click', (e) => {
+        const card = e.target.closest('.wizard-option-card');
+        if (!card) return;
+        
+        // Remove selected class from sibling cards
+        const stepContainer = card.closest('.wizard-step');
+        stepContainer.querySelectorAll('.wizard-option-card').forEach(el => el.classList.remove('selected'));
+        
+        card.classList.add('selected');
+        const val = card.dataset.val;
+
+        if (wizardState.step === 1) {
+            wizardState.goal = val;
+        } else if (wizardState.step === 2) {
+            wizardState.stim = val;
+        } else if (wizardState.step === 3) {
+            wizardState.blueprint = val;
+        }
+    });
+
+    // Comparison Event Listeners
+    document.getElementById('btn-open-compare').addEventListener('click', openCompare);
+    document.getElementById('compare-close').addEventListener('click', closeCompare);
+    document.getElementById('compare-select-a').addEventListener('change', renderComparison);
+    document.getElementById('compare-select-b').addEventListener('change', renderComparison);
 }
 
 // Render Supplement Cards in Grid
@@ -603,6 +639,316 @@ async function fetchPubMedData(name) {
             </div>
         `;
     }
+}
+
+// Quick Stack Wizard State
+let wizardState = {
+    step: 1,
+    goal: '',
+    stim: '',
+    blueprint: '',
+    recommendedCompounds: []
+};
+
+// Wizard helper functions
+function openWizard() {
+    wizardState = { step: 1, goal: '', stim: '', blueprint: '', recommendedCompounds: [] };
+    updateWizardUI();
+    document.getElementById('wizard-modal').style.display = 'flex';
+}
+
+function closeWizard() {
+    document.getElementById('wizard-modal').style.display = 'none';
+}
+
+function updateWizardUI() {
+    document.querySelectorAll('.wizard-step').forEach(el => el.classList.remove('active'));
+    
+    const wizardProgress = document.getElementById('wizard-progress');
+    const btnWizardNext = document.getElementById('btn-wizard-next');
+    const btnWizardApply = document.getElementById('btn-wizard-apply');
+    const btnWizardBack = document.getElementById('btn-wizard-back');
+
+    if (wizardState.step === 4) {
+        document.getElementById('wizard-step-results').classList.add('active');
+        btnWizardNext.style.display = 'none';
+        btnWizardApply.style.display = 'block';
+        wizardProgress.style.width = '100%';
+        calculateRecommendation();
+    } else {
+        document.getElementById(`wizard-step-${wizardState.step}`).classList.add('active');
+        btnWizardNext.style.display = 'block';
+        btnWizardApply.style.display = 'none';
+        wizardProgress.style.width = `${(wizardState.step / 3) * 100}%`;
+    }
+
+    btnWizardBack.style.display = wizardState.step > 1 ? 'block' : 'none';
+    
+    document.querySelectorAll(`#wizard-step-${wizardState.step} .wizard-option-card`).forEach(card => {
+        const val = card.dataset.val;
+        const currentVal = wizardState.step === 1 ? wizardState.goal : wizardState.step === 2 ? wizardState.stim : wizardState.blueprint;
+        if (val === currentVal) {
+            card.classList.add('selected');
+        } else {
+            card.classList.remove('selected');
+        }
+    });
+}
+
+function calculateRecommendation() {
+    const { goal, stim, blueprint } = wizardState;
+    let recs = [];
+    let title = '';
+    let desc = '';
+
+    if (goal === 'Focus & Calm') {
+        if (stim === 'stim') {
+            if (blueprint === 'starter') {
+                title = 'The Standard Focus Duo';
+                desc = 'Combining Caffeine and L-Theanine yields a classic cognitive stack. L-Theanine takes the jittery edge off caffeine, supporting clean focus and smooth dopamine release.';
+                recs = ['caffeine', 'l-theanine'];
+            } else {
+                title = 'Advanced Focus & Energy Stack';
+                desc = 'A professional protocol that optimizes dopamine, acetylcholine, and sustained energy. Formulated to increase mental drive and memory recall during taxing cognitive tasks.';
+                recs = ['caffeine', 'l-theanine', 'l-tyrosine', 'alpha-gpc'];
+            }
+        } else {
+            if (blueprint === 'starter') {
+                title = 'Clean Focus Duo';
+                desc = 'A natural focus duo that enhances cognitive retention and spatial learning without relying on central nervous system stimulants.';
+                recs = ['l-theanine', 'bacopa-monnieri'];
+            } else {
+                title = 'Stimulant-Free Neurogenesis Stack';
+                desc = 'A high-level stimulant-free protocol designed to optimize nerve growth factor (NGF), memory formation, and mental stamina under stress.';
+                recs = ['l-theanine', 'bacopa-monnieri', 'lions-mane', 'citicoline'];
+            }
+        }
+    } else if (goal === 'Stress & Sleep') {
+        if (blueprint === 'starter') {
+            title = 'Deep Calm Starter Stack';
+            desc = 'The absolute foundation of night-time recovery. Lowers cortisol levels and promotes slow-wave deep sleep to ensure you wake up fully recovered.';
+            recs = ['ashwagandha', 'magnesium-threonate'];
+        } else {
+            title = 'Maximum Recovery Sleep Stack';
+            desc = 'The complete sleep optimization blueprint. Soothes the central nervous system, facilitates rapid sleep latency, and stabilizes REM sleep structure.';
+            recs = ['ashwagandha', 'magnesium-threonate', 'apigenin', 'gaba'];
+        }
+    } else if (goal === 'Longevity') {
+        if (blueprint === 'starter') {
+            title = 'Cellular Energy Starter Stack';
+            desc = 'A powerful twin-protocol that increases NAD+ coenzyme availability and activates SIRT1 longevity genes to protect vascular and cellular health.';
+            recs = ['nmn', 'resveratrol'];
+        } else {
+            title = 'Complete Anti-Aging Blueprint';
+            desc = 'An advanced longevity stack targeting cellular renewal, clearing of senescent zombie cells, fasting-mimicking pathway activation, and mitochondrial support.';
+            recs = ['nmn', 'resveratrol', 'berberine', 'fisetin'];
+        }
+    } else if (goal === 'Muscle & Brain') {
+        if (blueprint === 'starter') {
+            title = 'Athletic Power Duo';
+            desc = 'A fundamental creatine and carnitine stack designed to accelerate cellular ATP muscle energy and fatty acid oxidation.';
+            recs = ['creatine', 'l-carnitine'];
+        } else {
+            title = 'Advanced Strength & VO2 Max Stack';
+            desc = 'Maximum output formula. Boosts high-intensity muscle recovery, androgen receptor density, and elevates oxygen utilization capacity (VO2 Max).';
+            recs = ['creatine', 'l-carnitine', 'cordyceps'];
+        }
+    }
+
+    wizardState.recommendedCompounds = recs;
+
+    const resultBox = document.getElementById('wizard-result-box');
+    const resolved = recs.map(id => supplementDatabase.find(s => s.id === id)).filter(Boolean);
+
+    resultBox.innerHTML = `
+        <div class="wizard-result-header">
+            <span class="wizard-result-title">${title}</span>
+            <span class="score-badge score-a" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">A-Grade Synergy</span>
+        </div>
+        <p class="wizard-result-desc">${desc}</p>
+        <div class="wizard-result-items">
+            ${resolved.map(supp => `
+                <div class="wizard-result-item">
+                    <span>${supp.name}</span>
+                    <span class="dosage">${supp.recommendedDosage}</span>
+                </div>
+            `).join('')}
+        </div>
+    `;
+}
+
+function handleWizardNext() {
+    if (wizardState.step === 1 && !wizardState.goal) {
+        showToast('Please select a target focus goal to proceed.', 'warning');
+        return;
+    }
+    if (wizardState.step === 2 && !wizardState.stim) {
+        showToast('Please select your stimulant preference.', 'warning');
+        return;
+    }
+    if (wizardState.step === 3 && !wizardState.blueprint) {
+        showToast('Please select your stack blueprint level.', 'warning');
+        return;
+    }
+
+    if (wizardState.step === 1 && (wizardState.goal === 'Stress & Sleep' || wizardState.goal === 'Longevity' || wizardState.goal === 'Muscle & Brain')) {
+        wizardState.stim = 'no-stim';
+        wizardState.step = 3;
+    } else {
+        wizardState.step++;
+    }
+    
+    updateWizardUI();
+}
+
+function handleWizardBack() {
+    if (wizardState.step === 3 && (wizardState.goal === 'Stress & Sleep' || wizardState.goal === 'Longevity' || wizardState.goal === 'Muscle & Brain')) {
+        wizardState.step = 1;
+    } else {
+        wizardState.step--;
+    }
+    updateWizardUI();
+}
+
+function applyWizardStack() {
+    const resolved = wizardState.recommendedCompounds.map(id => supplementDatabase.find(s => s.id === id)).filter(Boolean);
+    
+    resolved.forEach(supp => {
+        const isInStack = activeStack.some(item => item.id === supp.id);
+        if (!isInStack) {
+            activeStack.push(supp);
+        }
+    });
+
+    localStorage.setItem('neuroStackActive', JSON.stringify(activeStack));
+    updateStackUI();
+    closeWizard();
+    showToast('Wizard stack successfully added to your Active Stack!', 'success');
+}
+
+// Supplement Comparison Engine
+const compareSelectA = document.getElementById('compare-select-a');
+const compareSelectB = document.getElementById('compare-select-b');
+const compareResultsTable = document.getElementById('compare-results-table');
+
+function openCompare() {
+    populateCompareDropdowns();
+    document.getElementById('compare-modal').style.display = 'flex';
+    renderComparison();
+}
+
+function closeCompare() {
+    document.getElementById('compare-modal').style.display = 'none';
+}
+
+function populateCompareDropdowns() {
+    compareSelectA.innerHTML = '';
+    compareSelectB.innerHTML = '';
+
+    supplementDatabase.forEach((supp, idx) => {
+        const optionA = document.createElement('option');
+        optionA.value = supp.id;
+        optionA.textContent = supp.name;
+        if (idx === 0) optionA.selected = true;
+        compareSelectA.appendChild(optionA);
+
+        const optionB = document.createElement('option');
+        optionB.value = supp.id;
+        optionB.textContent = supp.name;
+        if (idx === 1) optionB.selected = true;
+        compareSelectB.appendChild(optionB);
+    });
+}
+
+function renderComparison() {
+    const idA = compareSelectA.value;
+    const idB = compareSelectB.value;
+
+    const suppA = supplementDatabase.find(s => s.id === idA);
+    const suppB = supplementDatabase.find(s => s.id === idB);
+
+    if (!suppA || !suppB) return;
+
+    let synergyClass = 'synergy-neutral';
+    let synergyLabel = 'Neutral/Compatible';
+    let synergyDesc = `Both compounds target different biological pathways and can be safely taken in the same daily regimen. Make sure to space dosing based on their target functions (e.g. energy compounds in the morning, sleeping aids at night).`;
+
+    if ((idA === 'caffeine' && idB === 'l-theanine') || (idA === 'l-theanine' && idB === 'caffeine')) {
+        synergyClass = 'synergy-good';
+        synergyLabel = '🔥 Highly Synergistic (The Focus Duo)';
+        synergyDesc = `This is the gold standard nootropic duo. L-Theanine increases alpha waves to promote calm focus while Caffeine blocks adenosine to keep you alert. L-Theanine eliminates caffeine jitters and physical anxiety completely.`;
+    } else if ((idA === 'nmn' && idB === 'resveratrol') || (idA === 'resveratrol' && idB === 'nmn')) {
+        synergyClass = 'synergy-good';
+        synergyLabel = '🧬 Highly Synergistic (Longevity Stack)';
+        synergyDesc = `Often referred to as the gas and accelerator pedal for cellular aging. NMN boosts the NAD+ fuel levels inside sirtuin proteins, while Resveratrol directly activates the sirtuins themselves. Taking them together maximizes sirtuin activity.`;
+    } else if ((idA === 'caffeine' && idB === 'melatonin') || (idA === 'melatonin' && idB === 'caffeine') ||
+               (idA === 'caffeine' && idB === 'apigenin') || (idA === 'apigenin' && idB === 'caffeine') ||
+               (idA === 'caffeine' && idB === 'gaba') || (idA === 'gaba' && idB === 'caffeine') ||
+               (idA === 'tongkat-ali' && idB === 'melatonin') || (idA === 'melatonin' && idB === 'tongkat-ali')) {
+        synergyClass = 'synergy-bad';
+        synergyLabel = '⚠️ Conflict Alert (Antagonists)';
+        synergyDesc = `Caffeine or other stimulating compounds (like Tongkat Ali) promote central nervous system excitation. Sleep-inducers like Melatonin, Apigenin, or GABA target calming receptors. Taking them simultaneously decreases efficacy and ruins sleep quality.`;
+    }
+
+    const scoreClassA = suppA.evidenceScore.startsWith('A') ? 'score-a' : suppA.evidenceScore.startsWith('B') ? 'score-b' : 'score-c';
+    const scoreClassB = suppB.evidenceScore.startsWith('A') ? 'score-a' : suppB.evidenceScore.startsWith('B') ? 'score-b' : 'score-c';
+
+    compareResultsTable.innerHTML = `
+        <table class="comp-table">
+            <thead>
+                <tr>
+                    <th>Metric</th>
+                    <th>${suppA.name}</th>
+                    <th>${suppB.name}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Chemical Name</td>
+                    <td style="font-style: italic;">${suppA.chemicalName}</td>
+                    <td style="font-style: italic;">${suppB.chemicalName}</td>
+                </tr>
+                <tr>
+                    <td>Evidence Score</td>
+                    <td><span class="comp-badge ${scoreClassA}">${suppA.evidenceScore} Evidence</span></td>
+                    <td><span class="comp-badge ${scoreClassB}">${suppB.evidenceScore} Evidence</span></td>
+                </tr>
+                <tr>
+                    <td>Primary Category</td>
+                    <td>${suppA.category}</td>
+                    <td>${suppB.category}</td>
+                </tr>
+                <tr>
+                    <td>Recommended Dose</td>
+                    <td>${suppA.recommendedDosage}</td>
+                    <td>${suppB.recommendedDosage}</td>
+                </tr>
+                <tr>
+                    <td>Target Goals</td>
+                    <td>${suppA.goals.map(g => `<span class="benefit-badge" style="display:inline-block; margin: 0.2rem 0.2rem 0.2rem 0; font-size: 0.8rem;">#${g}</span>`).join('')}</td>
+                    <td>${suppB.goals.map(g => `<span class="benefit-badge" style="display:inline-block; margin: 0.2rem 0.2rem 0.2rem 0; font-size: 0.8rem;">#${g}</span>`).join('')}</td>
+                </tr>
+                <tr>
+                    <td>Scientific Benefits</td>
+                    <td>
+                        <ul style="padding-left: 1.1rem; font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary);">
+                            ${suppA.benefits.map(b => `<li style="margin-bottom: 0.4rem;">${b}</li>`).join('')}
+                        </ul>
+                    </td>
+                    <td>
+                        <ul style="padding-left: 1.1rem; font-size: 0.85rem; line-height: 1.4; color: var(--text-secondary);">
+                            ${suppB.benefits.map(b => `<li style="margin-bottom: 0.4rem;">${b}</li>`).join('')}
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="synergy-rating-box ${synergyClass}">
+            <h4 style="margin-bottom: 0.4rem; font-weight: 700;">${synergyLabel}</h4>
+            <p style="font-size: 0.88rem; line-height: 1.5;">${synergyDesc}</p>
+        </div>
+    `;
 }
 
 // Start application
